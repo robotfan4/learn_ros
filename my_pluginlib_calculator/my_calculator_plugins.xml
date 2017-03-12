@@ -1,0 +1,11 @@
+<!--The library tag defines the library in which plugin classes live. A library may contain multiple plugins of varying class types.The relative path to the library from the main package directory-->
+<library path="lib/libmy_pluginlib_calculator">
+  <class name="my_pluginlib_calculator/Add" type="my_calculator_plugins::Add" base_class_type="my_calculator_base::calc_functions">
+    <description>This is a add plugin.</description>
+  </class>
+
+  <class name="my_pluginlib_calculator/Sub" type="my_calculator_plugins::Sub" base_class_type="my_calculator_base::calc_functions">
+    <description>This is a sub plugin.</description>
+  </class>
+
+</library>
