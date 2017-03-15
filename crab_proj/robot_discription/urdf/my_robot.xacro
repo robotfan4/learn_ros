@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="robot">
+<!--build base link-->
+
+  <link name="base_link">
+    <visual>
+      <geometry>
+        <cylinder length="0.010" radius="0.120"/>
+      </geometry>
+      <origin xyz="0 0 0"/>
+    </visual>
+  </link>
+
+<!-- xarco property-->
+	<xacro:property name="pi" value="3.1415926535897931"/>
+	<xacro:property name="joint_lower_limit" value="-${1.5}" />
+	<xacro:property name="joint_upper_limit" value="${1.5}" />
+	<xacro:property name="joint_effort" value="10000" />
+	<xacro:property name="joint_velocity" value="100" />
+
+
+
+<!--xarco leg-->
+<xacro:macro name="leg" params="num x y angle">
+
+
+
+<!--build leg-->
+  <joint name="leg_coxa${num}" type="revolute">
+    <parent link="base_link"/>
+    <child link="coxa_link${num}"/>
+	<limit lower="${joint_lower_limit}" upper="${joint_upper_limit}" effort="${joint_effort}" velocity="${joint_velocity}" />
+	<axis xyz="0 0 1"/>
+	<origin xyz="${x} ${y} 0 " rpy="0 0 ${angle}"/>
+  </joint>
+
+<link name="coxa_link${num}">
+    <visual>
+      <geometry>
+        <cylinder length="0.050" radius="0.010"/>
+	<!--mesh filename="package://robot_discription/mesh/t2.STL"/-->
+      </geometry>
+      <origin xyz="0 -0.025 0 " rpy="${pi/2}  0 0" />
+      <material name="blue">
+        <color rgba="0 0 .8 1"/>
+      </material>
+    </visual>
+  </link>
+
+  <joint name="femur_joint${num}" type="revolute">
+    <parent link="coxa_link${num}"/>
+    <child link="femur_link${num}"/>
+	<limit effort="1000.0" lower="-1.57" upper="1.57" velocity="0.5"/>
+	<axis xyz="1 0 0"/>
+	<origin xyz="0 -0.050 0"/>
+  </joint>
+
+   <link name="femur_link${num}">
+    <visual>
+      <geometry>
+        <cylinder length="0.120" radius="0.010"/>
+      </geometry>
+      <origin rpy="1.57 0 0" xyz="0 -0.060 0" />
+      <material name="blue">
+        <color rgba="0 0 .8 1"/>
+      </material>
+    </visual>
+  </link>
+
+  <joint name="tibia_joint${num}" type="revolute">
+    <parent link="femur_link${num}"/>
+    <child link="tibia_link${num}"/>
+	<limit effort="1000.0" lower="-2" upper="2" velocity="0.5"/>
+	<axis xyz="1 0 0"/>
+	<origin xyz="0 -0.120 0"/>
+  </joint>
+
+   <link name="tibia_link${num}">
+    <visual>
+      <geometry>
+        <cylinder length="0.200" radius="0.010"/>
+      </geometry>
+      <origin rpy="1.57 0 0" xyz="0 -0.100 0" />
+      <material name="blue">
+        <color rgba="0 0 .8 1"/>
+      </material>
+    </visual>
+  </link>
+</xacro:macro>
+
+<!--build robot-->
+
+<xacro:leg num="_r1" x="0" y="-0.120" 	angle="0" />
+<xacro:leg num="_r2" x="-0.10392" y="-0.060" 	angle="${-pi/3}" />
+<xacro:leg num="_r3" x="-0.10392" y="0.060" 	angle="${-2*pi/3}" />
+<xacro:leg num="_l1" x="0" y="0.120" 	angle="${pi}" />
+<xacro:leg num="_l2" x="0.10392" y="0.060" 	angle="${2*pi/3}" />
+<xacro:leg num="_l3" x="0.10392" y="-0.060" 	angle="${pi/3}" />
+</robot>

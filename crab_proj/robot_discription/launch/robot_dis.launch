@@ -1,0 +1,61 @@
+<launch>
+  <arg
+    name="model" />
+  <arg
+    name="gui"
+    default="False" />
+  <param
+    name="robot_description"
+    command="$(find xacro)/xacro.py '$(find hexapod_description)/urdf/phantomX_model.xacro'" />
+  <param
+    name="use_gui"
+    value="$(arg gui)" />
+
+  <param
+    name="trapezoid_low_radius"
+    value="0.04" />
+  <param
+    name="trapezoid_high_radius"
+    value="0.02" />
+  <param
+    name="trapezoid_h"
+    value="0.03" />
+  <param
+    name="clearance"
+    value="0.130" />
+  <param
+    name="duration_tripod"
+    value="1.5" />
+
+  <param
+    name="trapezoid_leg_radius"
+    value="0.140" />
+
+  <param
+    name="rate"
+    value="40" />
+
+
+ <!--rosparam param="source_list"> [crab_joint_publisher] </rosparam-->
+  <node
+    name="joint_state_publisher"
+    pkg="joint_state_publisher"
+    type="joint_state_publisher" />
+  <node
+    name="robot_state_publisher"
+    pkg="robot_state_publisher"
+    type="robot_state_publisher" />
+  <node
+    name="rviz"
+    pkg="rviz"
+    type="rviz"/>
+  <node name="crab_leg_kinematics" pkg="crab_leg_kinematics" type="leg_ik_service"/>
+  <node name="crab_body_kinematics" pkg="crab_body_kinematics" type="body_kinematics"/>
+  <node name="crab_joint_publisher" pkg="crab_joint_publisher" type="joint_publisher"/>
+ <!--node name="gait_kinematics" pkg="crab_gait" type="gait_kinematics"/-->
+  <!--node name="keyboard" pkg="keyboard" type="keyboard"/-->
+  <!--node name="sub_pub_node" pkg="arduino_sub_pub" type="sub_pub_node"/-->
+  <!--node name="keyboard_control_node" pkg="keyboard_control" type="keyboard_control_node"/-->
+
+
+</launch>

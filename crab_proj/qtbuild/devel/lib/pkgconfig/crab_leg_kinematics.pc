@@ -1,0 +1,8 @@
+prefix=/home/af/hexapod_ws/src/crab_proj/qtbuild/devel
+
+Name: crab_leg_kinematics
+Description: Description of crab_leg_kinematics
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/af/hexapod_ws/src/crab_proj/qtbuild/devel/lib 
+Requires: 

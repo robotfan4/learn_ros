@@ -1,0 +1,13 @@
+<launch>
+  <param
+    name="robot_description"
+    command="$(find xacro)/xacro.py '$(find robot_discription)/urdf/my_robotn2.xacro'" />
+  <node
+    name="crab_leg_kinematics"
+    pkg="crab_leg_kinematics"
+    type="leg_ik_service"/>
+
+
+</launch>
+
+

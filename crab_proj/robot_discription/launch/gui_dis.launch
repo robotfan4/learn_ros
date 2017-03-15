@@ -1,0 +1,53 @@
+<launch>
+  <arg
+    name="model" />
+  <arg
+    name="gui"
+    default="True" />
+  <param
+    name="robot_description"
+    command="$(find xacro)/xacro.py '$(find robot_discription)/urdf/my_robotn2.xacro'" />
+  <param
+    name="use_gui"
+    value="$(arg gui)" />
+
+  <param
+    name="trapezoid_low_radius"
+    value="50.00" />
+  <param
+    name="trapezoid_high_radius"
+    value="30.00" />
+  <param
+    name="trapezoid_h"
+    value="20.00" />
+  <param
+    name="clearance"
+    value="120.00" />
+  <param
+    name="duration_tripod"
+    value="5.00" />
+
+  <param
+    name="rate"
+    value="25" />
+
+  <node
+    name="sub_pub_node"
+    pkg="arduino_sub_pub"
+    type="sub_pub_node" />
+
+  <node
+    name="joint_state_publisher"
+    pkg="joint_state_publisher"
+    type="joint_state_publisher" />
+  <node
+    name="robot_state_publisher"
+    pkg="robot_state_publisher"
+    type="robot_state_publisher" />
+  <node
+    name="rviz"
+    pkg="rviz"
+    type="rviz"/>
+
+
+</launch>

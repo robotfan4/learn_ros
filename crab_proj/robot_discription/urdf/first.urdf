@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<robot name="myfirst">
+  <link name="base_link">
+    <visual>
+      <geometry>
+        <box size="1 1 1"/>
+      </geometry>
+      <origin xyz="0 0 0"/>
+    </visual>
+  </link>
+
+	
+  <joint name="left_joint" type="continuous">
+    <parent link="base_link"/>
+    <child link="left_link"/>
+	<axis xyz="0 1 0"/>
+	<origin xyz="0 -0.5 0.5"/>
+  </joint>
+
+
+   <link name="left_link">
+    <visual>
+      <geometry>
+        <cylinder length="1" radius="0.1"/>
+      </geometry>
+      <origin xyz="0 -0.1 -0.5"/>
+      <material name="blue">
+        <color rgba="0 0 .8 1"/>
+      </material>
+    </visual>
+  </link>
+
+  <joint name="right_joint" type="continuous">
+    <parent link="base_link"/>
+    <child link="right_link"/>
+	<axis xyz="0 1 0"/>
+	<origin xyz="0 0.5 0.5"/>
+  </joint>
+
+   <link name="right_link">
+    <visual>
+      <geometry>
+        <cylinder length="1" radius="0.1"/>
+      </geometry>
+      <origin xyz="0 0.1 -0.5"/>
+      <material name="blue">
+        <color rgba="0 0 .8 1"/>
+      </material>
+    </visual>
+  </link>
+
+
+</robot>

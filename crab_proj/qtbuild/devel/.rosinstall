@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/af/hexapod_ws/src/crab_proj/qtbuild/devel/setup.sh

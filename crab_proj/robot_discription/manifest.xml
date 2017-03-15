@@ -1,0 +1,14 @@
+<package>
+  <description brief="robot_discription">
+
+     robot_discription
+
+  </description>
+  <author>yang</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/robot_discription</url>
+
+</package>
+
+

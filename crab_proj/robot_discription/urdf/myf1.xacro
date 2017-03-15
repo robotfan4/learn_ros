@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="crab">
+<!--build base link-->
+
+  <link name="base_link">
+    <visual>
+      <geometry>
+        <cylinder length="10" radius="120"/>
+      </geometry>
+      <origin xyz="0 0 0"/>
+    </visual>
+  </link>
+
+  <xacro:property name="pi" value="3.1415926535897931" />
+  <!--xacro:property name="pi" value="3.1415926535897931" /-->
+
+</robot>

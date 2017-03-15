@@ -1,0 +1,53 @@
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /home/af/hexapod_ws/src/crab_proj/qtbuild/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec196906498/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec196906498.dir/build.make CMakeFiles/cmTryCompileExec196906498.dir/build
+make[1]: Entering directory `/home/af/hexapod_ws/src/crab_proj/qtbuild/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/af/hexapod_ws/src/crab_proj/qtbuild/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec196906498.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec196906498.dir/CheckSymbolExists.c.o   -c /home/af/hexapod_ws/src/crab_proj/qtbuild/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTryCompileExec196906498
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec196906498.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTryCompileExec196906498.dir/CheckSymbolExists.c.o  -o cmTryCompileExec196906498 -rdynamic 
+CMakeFiles/cmTryCompileExec196906498.dir/CheckSymbolExists.c.o: In function `main':
+CheckSymbolExists.c:(.text+0x16): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+make[1]: *** [cmTryCompileExec196906498] Error 1
+make[1]: Leaving directory `/home/af/hexapod_ws/src/crab_proj/qtbuild/CMakeFiles/CMakeTmp'
+make: *** [cmTryCompileExec196906498/fast] Error 2
+
+File /home/af/hexapod_ws/src/crab_proj/qtbuild/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/af/hexapod_ws/src/crab_proj/qtbuild/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec3888802414/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec3888802414.dir/build.make CMakeFiles/cmTryCompileExec3888802414.dir/build
+make[1]: Entering directory `/home/af/hexapod_ws/src/crab_proj/qtbuild/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/af/hexapod_ws/src/crab_proj/qtbuild/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3888802414.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec3888802414.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec3888802414
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3888802414.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec3888802414.dir/CheckFunctionExists.c.o  -o cmTryCompileExec3888802414 -rdynamic -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+make[1]: *** [cmTryCompileExec3888802414] Error 1
+make[1]: Leaving directory `/home/af/hexapod_ws/src/crab_proj/qtbuild/CMakeFiles/CMakeTmp'
+make: *** [cmTryCompileExec3888802414/fast] Error 2
+
+

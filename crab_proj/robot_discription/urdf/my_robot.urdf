@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<robot name="myrobot">
+  <link name="base_link">
+    <visual>
+      <geometry>
+        <cylinder length="10" radius="120"/>
+      </geometry>
+      <origin xyz="0 0 0"/>
+    </visual>
+  </link>
+
+  <joint name="coxa_joint" type="revolute">
+    <parent link="base_link"/>
+    <child link="coxa_link"/>
+	<limit effort="1000.0" lower="-1.57" upper="1.57" velocity="0.5"/>
+	<axis xyz="0 0 1"/>
+	<origin xyz="0 -120 0"/>
+  </joint>
+
+   <link name="coxa_link">
+    <visual>
+      <geometry>
+        <!--cylinder length="50" radius="10"/-->
+	<mesh filename=~/ros_ws/robot_discription/mesh/leg2.STL/>
+      </geometry>
+      <origin rpy="1.57 0 0" xyz="0 -25 0" />
+      <material name="blue">
+        <color rgba="0 0 .8 1"/>
+      </material>
+    </visual>
+  </link>
+
+  <joint name="femur_joint" type="revolute">
+    <parent link="coxa_link"/>
+    <child link="femur_link"/>
+	<limit effort="1000.0" lower="-1.57" upper="1.57" velocity="0.5"/>
+	<axis xyz="1 0 0"/>
+	<origin xyz="0 -50 0"/>
+  </joint>
+
+   <link name="femur_link">
+    <visual>
+      <geometry>
+        <cylinder length="120" radius="10"/>
+      </geometry>
+      <origin rpy="1.57 0 0" xyz="0 -60 0" />
+      <material name="blue">
+        <color rgba="0 0 .8 1"/>
+      </material>
+    </visual>
+  </link>
+
+  <joint name="tibia_joint" type="revolute">
+    <parent link="femur_link"/>
+    <child link="tibia_link"/>
+	<limit effort="1000.0" lower="-2" upper="2" velocity="0.5"/>
+	<axis xyz="1 0 0"/>
+	<origin xyz="0 -120 0"/>
+  </joint>
+
+   <link name="tibia_link">
+    <visual>
+      <geometry>
+        <cylinder length="200" radius="10"/>
+      </geometry>
+      <origin rpy="1.57 0 0" xyz="0 -100 0" />
+      <material name="blue">
+        <color rgba="0 0 .8 1"/>
+      </material>
+    </visual>
+  </link>
+
+</robot>

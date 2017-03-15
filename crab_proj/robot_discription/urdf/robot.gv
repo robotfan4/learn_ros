@@ -1,0 +1,59 @@
+digraph G {
+node [shape=box];
+"base_link" [label="base_link"];
+"coxa_link1" [label="coxa_link1"];
+"femur_link1" [label="femur_link1"];
+"tibia_link1" [label="tibia_link1"];
+"coxa_link2" [label="coxa_link2"];
+"femur_link2" [label="femur_link2"];
+"tibia_link2" [label="tibia_link2"];
+"coxa_link3" [label="coxa_link3"];
+"femur_link3" [label="femur_link3"];
+"tibia_link3" [label="tibia_link3"];
+"coxa_link4" [label="coxa_link4"];
+"femur_link4" [label="femur_link4"];
+"tibia_link4" [label="tibia_link4"];
+"coxa_link5" [label="coxa_link5"];
+"femur_link5" [label="femur_link5"];
+"tibia_link5" [label="tibia_link5"];
+"coxa_link6" [label="coxa_link6"];
+"femur_link6" [label="femur_link6"];
+"tibia_link6" [label="tibia_link6"];
+node [shape=ellipse, color=blue, fontcolor=blue];
+"base_link" -> "leg_coxa1" [label="xyz: 0 -120 0 \nrpy: 0 -0 0"]
+"leg_coxa1" -> "coxa_link1"
+"coxa_link1" -> "femur_joint1" [label="xyz: 0 -50 0 \nrpy: 0 -0 0"]
+"femur_joint1" -> "femur_link1"
+"femur_link1" -> "tibia_joint1" [label="xyz: 0 -120 0 \nrpy: 0 -0 0"]
+"tibia_joint1" -> "tibia_link1"
+"base_link" -> "leg_coxa2" [label="xyz: -103.92 -60 0 \nrpy: 0 0 -1.0472"]
+"leg_coxa2" -> "coxa_link2"
+"coxa_link2" -> "femur_joint2" [label="xyz: 0 -50 0 \nrpy: 0 -0 0"]
+"femur_joint2" -> "femur_link2"
+"femur_link2" -> "tibia_joint2" [label="xyz: 0 -120 0 \nrpy: 0 -0 0"]
+"tibia_joint2" -> "tibia_link2"
+"base_link" -> "leg_coxa3" [label="xyz: -103.92 60 0 \nrpy: 0 0 -2.0944"]
+"leg_coxa3" -> "coxa_link3"
+"coxa_link3" -> "femur_joint3" [label="xyz: 0 -50 0 \nrpy: 0 -0 0"]
+"femur_joint3" -> "femur_link3"
+"femur_link3" -> "tibia_joint3" [label="xyz: 0 -120 0 \nrpy: 0 -0 0"]
+"tibia_joint3" -> "tibia_link3"
+"base_link" -> "leg_coxa4" [label="xyz: 0 120 0 \nrpy: 0 -0 -3.14159"]
+"leg_coxa4" -> "coxa_link4"
+"coxa_link4" -> "femur_joint4" [label="xyz: 0 -50 0 \nrpy: 0 -0 0"]
+"femur_joint4" -> "femur_link4"
+"femur_link4" -> "tibia_joint4" [label="xyz: 0 -120 0 \nrpy: 0 -0 0"]
+"tibia_joint4" -> "tibia_link4"
+"base_link" -> "leg_coxa5" [label="xyz: 103.92 60 0 \nrpy: 0 -0 2.0944"]
+"leg_coxa5" -> "coxa_link5"
+"coxa_link5" -> "femur_joint5" [label="xyz: 0 -50 0 \nrpy: 0 -0 0"]
+"femur_joint5" -> "femur_link5"
+"femur_link5" -> "tibia_joint5" [label="xyz: 0 -120 0 \nrpy: 0 -0 0"]
+"tibia_joint5" -> "tibia_link5"
+"base_link" -> "leg_coxa6" [label="xyz: 103.92 -60 0 \nrpy: 0 -0 1.0472"]
+"leg_coxa6" -> "coxa_link6"
+"coxa_link6" -> "femur_joint6" [label="xyz: 0 -50 0 \nrpy: 0 -0 0"]
+"femur_joint6" -> "femur_link6"
+"femur_link6" -> "tibia_joint6" [label="xyz: 0 -120 0 \nrpy: 0 -0 0"]
+"tibia_joint6" -> "tibia_link6"
+}

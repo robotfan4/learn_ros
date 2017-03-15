@@ -1,0 +1,18 @@
+#!/usr/bin/env python
+PACKAGE = "crab_gait"
+
+from dynamic_reconfigure.parameter_generator_catkin import *
+
+gen = ParameterGenerator()
+
+gen.add("trapezoid_low_radius",    double_t,    0, "low radius", 40.00,  0, 100)
+gen.add("trapezoid_high_radius", double_t, 0, "high radius",    30.00, 0,   100)
+gen.add("trapezoid_h",    double_t,    0, "leg tip high",  30.00, 0,   100)
+gen.add("clearance",   double_t,   0, "tip center z",  120.00, 0,   300)
+gen.add("duration_ripple",   double_t,   0, "duration",  5, 0.5,   10)
+gen.add("duration_tripod",   double_t,   0, "duration",  1.00, 0.5,   10)
+gen.add("trapezoid_leg_radius",   double_t,   0, "radius",  140.00, 100,   250)
+
+# this will generate Wrote header file in /home/yangfan/catkin_w2/devel/include/dynamic_tutorials/TutorialsConfig.h
+exit(gen.generate(PACKAGE, "crab_gait", "Dynamic_para"))
+

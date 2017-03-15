@@ -1,0 +1,9 @@
+<launch>
+ <node name="depth2cloud_node" pkg="depth2cloud" type="depth2cloud_node"/>
+<node name="rviz" pkg="rviz" type="rviz"/>
+ <node name="point_cloud_converter_node" pkg="point_cloud_converter" type="point_cloud_converter_node"/>
+<remap from="/output" to="/points2_in" />
+<remap from="/my_out_pointcloud" to="/points_out" />
+
+</launch>
+

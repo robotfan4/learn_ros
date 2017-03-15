@@ -1,0 +1,6 @@
+<launch>
+ <node name="depth2cloud_node" pkg="depth2cloud" type="depth2cloud_node"/>
+<node name="rviz" pkg="rviz" type="rviz"/>
+
+</launch>
+
